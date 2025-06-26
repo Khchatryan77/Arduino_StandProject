@@ -104,10 +104,9 @@ void loop() {
     Serial.println(request);
     client.flush();
 
-    startTime = millis();  // timmer started
-
     if (request.indexOf("GET /MOTOR=START_POS") >= 0) {
       stepper.setCurrentPosition(0);
+      startTime = millis();  // timmer started
 
       digitalWrite(ENA_PIN, LOW);
       startTime = millis();
@@ -136,6 +135,7 @@ void loop() {
 
     if (request.indexOf("GET /MOTOR=END_POS") >= 0) {
       stepper.setCurrentPosition(0);
+      startTime = millis();  // timmer started
 
       digitalWrite(ENA_PIN, LOW);
       
